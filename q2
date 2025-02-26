@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class FoodOrder {
+private:
+    string orderName;
+    int quantity;
+    double price;
+
+public:
+    
+    FoodOrder(string name, int qty, double p) : orderName(name), quantity(qty), price(p) {}
+
+
+    void display() {
+        cout << "Order: " << orderName << " | Quantity: " << quantity << " | Total Price: $" << price << endl;
+    }
+
+    
+    FoodOrder operator+(const FoodOrder& f) {
+        return FoodOrder(orderName + " & " + f.orderName, quantity + f.quantity, price + f.price);
+    }
+};
+
+int main() {
+    FoodOrder order1("Pizza", 2, 15.99);
+    FoodOrder order2("Burger",
